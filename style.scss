@@ -7,6 +7,9 @@
     width: 775px;
     height: 100px;
     margin: 0 auto 20px;
+    &:focus {
+      outline: none;
+    }
   }
   .keyboard {
     display: flex;

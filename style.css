@@ -9,6 +9,9 @@
   height: 100px;
   margin: 0 auto 20px;
 }
+.main .text:focus {
+  outline: none;
+}
 .main .keyboard {
   display: flex;
   flex-wrap: wrap;
