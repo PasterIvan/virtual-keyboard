@@ -66,5 +66,64 @@
   background: rgba(67, 140, 130, 0.76);
   color: #fff;
 }
+.main .keyboard .button:active {
+  width: 46px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .button_backspace:active, .main .keyboard .button_tab:active, .main .keyboard .button_caps:active, .main .keyboard .button_r-shift:active, .main .keyboard .button_l-shift:active {
+  width: 71px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .button_up:active {
+  width: 46px;
+  height: 46px;
+  margin: 2px 54px 2px 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .button_space:active {
+  width: 232px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .active {
+  width: 46px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .backspace-active,
+.main .keyboard .tab-active,
+.main .keyboard .r-shift-active,
+.main .keyboard .l-shift-active {
+  width: 71px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .spase-active {
+  width: 232px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .up-active {
+  width: 46px;
+  height: 46px;
+  margin: 2px 54px 2px 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
 
 /*# sourceMappingURL=style.css.map */
