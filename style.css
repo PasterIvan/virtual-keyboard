@@ -7,20 +7,20 @@
 .main .text {
   width: 775px;
   height: 100px;
-  margin: 0 auto 10px;
+  margin: 0 auto 20px;
 }
 .main .keyboard {
   display: flex;
   flex-wrap: wrap;
   gap: 3px;
   justify-content: center;
-  width: 775px;
+  width: 780px;
   margin: 0 auto;
   height: 275px;
   padding: 10px 0;
   background: #96b9b7;
   border-radius: 7px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 .main .keyboard .button {
   width: 50px;
@@ -28,6 +28,40 @@
   border: none;
   border-radius: 5px;
   background: rgba(67, 140, 130, 0.76);
+  color: #fff;
+}
+.main .keyboard .button_backspace, .main .keyboard .button_tab, .main .keyboard .button_caps, .main .keyboard .button_r-shift, .main .keyboard .button_l-shift {
+  width: 75px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(67, 140, 130, 0.76);
+  color: #fff;
+}
+.main .keyboard .button_up {
+  width: 50px;
+  height: 50px;
+  border: none;
+  margin-right: 52px;
+  border-radius: 5px;
+  background: rgba(67, 140, 130, 0.76);
+  color: #fff;
+}
+.main .keyboard .button_space {
+  width: 236px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(67, 140, 130, 0.76);
+  color: #fff;
+}
+.main .keyboard .button_command {
+  width: 75px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(67, 140, 130, 0.76);
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
