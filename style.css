@@ -94,6 +94,12 @@
   opacity: 0.8;
   transition: 0.1s;
 }
+.main .keyboard .button_command:active {
+  width: 71px;
+  height: 46px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
 .main .keyboard .active {
   width: 46px;
   height: 46px;

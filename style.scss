@@ -51,7 +51,6 @@
         border-radius: 5px;
         background: rgba(67, 140, 130, 0.76);
         color: #fff;
-
       }
       &_space {
         width: 236px;
@@ -60,7 +59,6 @@
         border-radius: 5px;
         background: rgba(67, 140, 130, 0.76);
         color: #fff;
-
       }
       &_command {
         width: 75px;
@@ -69,8 +67,77 @@
         border-radius: 5px;
         background: rgba(67, 140, 130, 0.76);
         color: #fff;
-
       }
+      &:active {
+        width: 46px;
+        height: 46px;
+        margin: 2px;
+        opacity: 0.8;
+        transition: .1s;
+      }
+      &_backspace:active,
+      &_tab:active,
+      &_caps:active,
+      &_r-shift:active,
+      &_l-shift:active {
+        width: 71px;
+        height: 46px;
+        margin: 2px;
+        opacity: 0.8;
+        transition: .1s;
+      }
+
+      &_up:active {
+        width: 46px;
+        height: 46px;
+        margin: 2px 54px 2px 2px;
+        opacity: 0.8;
+        transition: .1s;
+      }
+      &_space:active {
+        width: 232px;
+        height: 46px;
+        margin: 2px;
+        opacity: 0.8;
+        transition: .1s;
+      }
+      &_command:active {
+        width: 71px;
+        height: 46px;
+        opacity: 0.8;
+        transition: .1s;
+      }
+    }
+    .active {
+      width: 46px;
+      height: 46px;
+      margin: 2px;
+      opacity: 0.8;
+      transition: .1s;
+    }
+    .backspace-active,
+    .tab-active,
+    .r-shift-active,
+    .l-shift-active {
+      width: 71px;
+      height: 46px;
+      margin: 2px;
+      opacity: 0.8;
+      transition: .1s;
+    }
+    .spase-active {
+      width: 232px;
+      height: 46px;
+      margin: 2px;
+      opacity: 0.8;
+      transition: .1s;
+    }
+    .up-active {
+      width: 46px;
+      height: 46px;
+      margin: 2px 54px 2px 2px;
+      opacity: 0.8;
+      transition: .1s;
     }
   }
 }

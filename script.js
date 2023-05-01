@@ -146,22 +146,22 @@ const Body = {
 
           break;
 
-          case "Caps":
-          button.classList.add("button_cups");
+        case "Caps":
+        button.classList.add("button_cups");
 
-          document.addEventListener('keydown', (event) => {
-            if (event.code === "CapsLock") {
-              button.classList.add("active");
-            }
-          });
+        document.addEventListener('keydown', (event) => {
+          if (event.code === "CapsLock") {
+            button.classList.add("active");
+          }
+        });
 
-          document.addEventListener('keyup', (event) => {
-            if (event.code === "CapsLock") {
-              button.classList.remove("active");
-            }
-          });
+        document.addEventListener('keyup', (event) => {
+          if (event.code === "CapsLock") {
+            button.classList.remove("active");
+          }
+        });
 
-          break;
+        break;
 
         case "up":
           button.classList.add("button_up");
