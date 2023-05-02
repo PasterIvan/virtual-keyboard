@@ -282,6 +282,59 @@ const Body = {
 
           break;
 
+        case "ControlLeft":
+          button.classList.add("button");
+          button.id = key
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "ControlLeft") {
+              button.classList.add("active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "ControlLeft") {
+              button.classList.remove("active");
+            }
+          });
+
+          break;
+
+        case "AltLeft":
+          button.classList.add("button");
+          button.id = key
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "AltLeft") {
+              button.classList.add("active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "AltLeft") {
+              button.classList.remove("active");
+            }
+          });
+
+          break;
+        case "AltRight":
+          button.classList.add("button");
+          button.id = key
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "AltRight") {
+              button.classList.add("active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "AltRight") {
+              button.classList.remove("active");
+            }
+          });
+
+          break;
+
         case "ArrowLeft":
           button.classList.add("button");
           button.id = key
