@@ -119,506 +119,405 @@ const Body = {
 
     // Creates HTML for an icon
     for (let key in keys) {
-        const button = document.createElement("button");
+      const button = document.createElement("button");
 
-        // Add attributes/classes
-        button.setAttribute("type", "button");
-        button.classList.add("button");
+      // Add attributes/classes
+      button.setAttribute("type", "button");
+      button.classList.add("button");
 
-        switch (key) {
-          case "Backspace":
-            button.classList.add("button_backspace");
-            button.id = key
+      switch (key) {
+        case "Backspace":
+          button.classList.add("button_backspace");
+          button.id = key
 
-            button.addEventListener("click", () => {
-              this.value = this.value.slice(0, -1);
-              document.querySelectorAll(".text").forEach(element => {
-                element.value = this.value;
-              });
+          button.addEventListener("click", () => {
+            this.value = this.value.slice(0, -1);
+            document.querySelectorAll(".text").forEach(element => {
+              element.value = this.value;
             });
-
-            document.addEventListener('keydown', (event) => {
-              if (event.code === "Backspace") {
-                button.classList.add("backspace-active");
-              }
-            });
-
-            document.addEventListener('keyup', (event) => {
-              if (event.code === "Backspace") {
-                button.classList.remove("backspace-active");
-              }
-            });
-
-            break;
-
-          case "Enter":
-            button.id = key
-
-            button.addEventListener("click", () => {
-              document.querySelectorAll(".text").forEach(() => {
-                this.value += "\n";
-              });
-            });
-
-            document.addEventListener('keydown', (event) => {
-              if (event.code === "Enter") {
-                button.classList.add("active");
-              }
-            });
-
-            document.addEventListener('keyup', (event) => {
-              if (event.code === "Enter") {
-                button.classList.remove("active");
-              }
-            });
-
-            break;
-
-          case "Tab":
-            button.classList.add("button_tab");
-            button.id = key
-
-            document.addEventListener('keydown', (event) => {
-              if (event.code === "Tab") {
-                button.classList.add("tab-active");
-              }
-            });
-
-            document.addEventListener('keyup', (event) => {
-              if (event.code === "Tab") {
-                button.classList.remove("tab-active");
-              }
-            });
-
-            break;
-
-          case "ShiftRight":
-            button.classList.add("button_r-shift");
-            button.id = key
-
-            button.addEventListener('mousedown', () => {
-              this.caps = true
-              let buttons = document.querySelectorAll('button')
-              buttons.forEach((key) => {
-                switch (this.ln) {
-                  case "en":
-                    key.textContent = this.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_en
-                        : this.keys[key.id] && this.keys[key.id].l_en;
-                    break
-                  case "ru":
-                    key.textContent = Body.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_ru
-                        : this.keys[key.id] && this.keys[key.id].l_ru;
-                    break
-                }
-              })
-            });
-            button.addEventListener('mouseup', () => {
-              this.caps = false
-              let buttons = document.querySelectorAll('button')
-              buttons.forEach((key) => {
-                switch (this.ln) {
-                  case "en":
-                    key.textContent = this.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_en
-                        : this.keys[key.id] && this.keys[key.id].l_en;
-                    break
-                  case "ru":
-                    key.textContent = Body.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_ru
-                        : this.keys[key.id] && this.keys[key.id].l_ru;
-                    break
-                }
-              })
-            });
-            document.addEventListener('keydown', (event) => {
-              if (event.code === "ShiftRight") {
-                button.classList.add("r-shift-active");
-                this.caps = true
-              }
-            });
-
-            document.addEventListener('keyup', (event) => {
-              if (event.code === "ShiftRight") {
-                button.classList.remove("r-shift-active");
-                this.caps = false
-              }
-            });
-
-            break;
-
-          case "ShiftLeft":
-            button.classList.add("button_r-shift");
-            button.id = key
-
-            button.addEventListener('mousedown', () => {
-              this.caps = true
-              let buttons = document.querySelectorAll('button')
-              buttons.forEach((key) => {
-                switch (this.ln) {
-                  case "en":
-                    key.textContent = this.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_en
-                        : this.keys[key.id] && this.keys[key.id].l_en;
-                    break
-                  case "ru":
-                    key.textContent = Body.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_ru
-                        : this.keys[key.id] && this.keys[key.id].l_ru;
-                    break
-                }
-              })
-            });
-            button.addEventListener('mouseup', () => {
-              this.caps = false
-              let buttons = document.querySelectorAll('button')
-              buttons.forEach((key) => {
-                switch (this.ln) {
-                  case "en":
-                    key.textContent = this.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_en
-                        : this.keys[key.id] && this.keys[key.id].l_en;
-                    break
-                  case "ru":
-                    key.textContent = Body.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_ru
-                        : this.keys[key.id] && this.keys[key.id].l_ru;
-                    break
-                }
-              })
-            });
-            document.addEventListener('keydown', (event) => {
-              if (event.code === "ShiftLeft") {
-                button.classList.add("l-shift-active");
-                this.caps = true
-              }
-            });
-
-            document.addEventListener('keyup', (event) => {
-              if (event.code === "ShiftLeft") {
-                button.classList.remove("l-shift-active");
-                this.caps = false
-              }
-            });
-
-            break;
-
-          case "CapsLock":
-            button.classList.add("button_cups");
-            button.id = key
-
-            button.addEventListener('mousedown', () => {
-              this.caps = !this.caps
-              button.classList.toggle("active");
-              let buttons = document.querySelectorAll('button')
-              buttons.forEach((key) => {
-                switch (this.ln) {
-                  case "en":
-                    key.textContent = this.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_en
-                        : this.keys[key.id] && this.keys[key.id].l_en;
-                    break
-                  case "ru":
-                    key.textContent = this.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_ru
-                        : this.keys[key.id] && this.keys[key.id].l_ru;
-                    break
-                }
-              })
-            });
-
-            document.addEventListener('keydown', (event) => {
-              if (event.code === "CapsLock") {
-                button.classList.add("active");
-              }
-            });
-
-            document.addEventListener('keyup', (event) => {
-              if (event.code === "CapsLock") {
-                button.classList.remove("active");
-              }
-            });
-
-            break;
-
-          case "ArrowUp":
-            button.classList.add("button_up");
-            button.id = key
-
-            document.addEventListener('keydown', (event) => {
-              if (event.code === "ArrowUp") {
-                button.classList.add("up-active");
-              }
-            });
-
-            document.addEventListener('keyup', (event) => {
-              if (event.code === "ArrowUp") {
-                button.classList.remove("up-active");
-              }
-            });
-
-            break;
-
-          case "Space":
-            button.classList.add("button_space");
-            button.id = key
-
-            button.addEventListener("click", () => {
-              switch (this.ln) {
-                case "en":
-                  this.value += this.caps
-                      ? this.keys[key] && this.keys[key].u_en
-                      : this.keys[key] && this.keys[key].l_en;
-                  break
-                case "ru":
-                  this.value += this.caps
-                      ? this.keys[key] && this.keys[key].u_ru
-                      : this.keys[key] && this.keys[key].l_ru;
-                  break
-              }
-              document.querySelectorAll(".text").forEach(element => {
-                element.value = this.value;
-              });
-            });
-
-            break;
-
-          case "fn":
-            button.id = key
-
-            button.addEventListener("click", () => {
-              this.value += "";
-              this.ln = this.ln === 'en' ? 'ru' : 'en'
-            });
-
-            button.addEventListener('click', () => {
-
-              let buttons = document.querySelectorAll('button')
-              buttons.forEach((key) => {
-                switch (this.ln) {
-                  case "en":
-                    key.textContent = this.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_en
-                        : this.keys[key.id] && this.keys[key.id].l_en;
-                    break
-                  case "ru":
-                    key.textContent = Body.caps
-                        ? this.keys[key.id] && this.keys[key.id].u_ru
-                        : this.keys[key.id] && this.keys[key.id].l_ru;
-                    break
-                }
-              })
-            })
-
-            break;
-
-          case "MetaLeft":
-            button.classList.add("button_command");
-            button.id = key
-
-            break;
-
-          case "MetaRight":
-            button.classList.add("button_command");
-            button.id = key
-
-            break;
-
-          default:
-            button.classList.add("button");
-            button.id = key
-            button.addEventListener("click", () => {
-              switch (this.ln) {
-                case "en":
-                  this.value += this.caps
-                      ? this.keys[key] && this.keys[key].u_en
-                      : this.keys[key] && this.keys[key].l_en;
-                  break
-                case "ru":
-                  this.value += this.caps
-                      ? this.keys[key] && this.keys[key].u_ru
-                      : this.keys[key] && this.keys[key].l_ru;
-                  break
-              }
-              document.querySelectorAll(".text").forEach(element => {
-                element.value = this.value;
-              });
-            });
-
-            document.addEventListener('keydown', (event) => {
-              if (event.code === key) {
-                button.classList.add("active");
-                switch (this.ln) {
-                  case "en":
-                    this.value += this.caps
-                        ? this.keys[key] && this.keys[key].u_en
-                        : this.keys[key] && this.keys[key].l_en;
-                    break
-                  case "ru":
-                    this.value += this.caps
-                        ? this.keys[key] && this.keys[key].u_ru
-                        : this.keys[key] && this.keys[key].l_ru;
-                    break
-                }
-                document.querySelectorAll(".text").forEach(element => {
-                  element.value = this.value;
-                });
-              }
-            });
-
-            document.addEventListener('keyup', (event) => {
-              if (event.code === key) {
-                button.classList.remove("active");
-                document.querySelectorAll(".text").forEach(element => {
-                  element.value = this.value;
-                });
-              }
-            });
-
-            break;
-        }
-
-        button.addEventListener("click", () => {
-          document.querySelectorAll(".text").forEach(element => {
-            element.focus();
           });
-        });
 
-        button.textContent = this.caps ? this.keys[key].u_en : this.keys[key].l_en;
-        fragment.appendChild(button);
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "Backspace") {
+              button.classList.add("backspace-active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "Backspace") {
+              button.classList.remove("backspace-active");
+            }
+          });
+
+          break;
+
+        case "Enter":
+          button.id = key
+
+          button.addEventListener("click", () => {
+            document.querySelectorAll(".text").forEach(() => {
+              this.value += "\n";
+            });
+          });
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "Enter") {
+              button.classList.add("active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "Enter") {
+              button.classList.remove("active");
+            }
+          });
+
+          break;
+
+        case "Tab":
+          button.classList.add("button_tab");
+          button.id = key
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "Tab") {
+              button.classList.add("tab-active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "Tab") {
+              button.classList.remove("tab-active");
+            }
+          });
+
+          break;
+
+        case "ShiftRight":
+          button.classList.add("button_r-shift");
+          button.id = key
+          this.updateKeys(button, "mousedown")
+          this.updateKeys(button, "mouseup")
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "ShiftRight") {
+              button.classList.add("r-shift-active");
+              this.caps = true
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "ShiftRight") {
+              button.classList.remove("r-shift-active");
+              this.caps = false
+            }
+          });
+
+          break;
+
+        case "ShiftLeft":
+          button.classList.add("button_r-shift");
+          button.id = key
+          this.updateKeys(button, "mousedown")
+          this.updateKeys(button, "mouseup")
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "ShiftLeft") {
+              button.classList.add("l-shift-active");
+              this.caps = true
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "ShiftLeft") {
+              button.classList.remove("l-shift-active");
+              this.caps = false
+            }
+          });
+
+          break;
+
+        case "CapsLock":
+          button.classList.add("button_cups");
+          button.id = key
+
+          button.addEventListener('mousedown', () => {
+            this.caps = !this.caps
+            button.classList.toggle("active");
+            let buttons = document.querySelectorAll('button')
+            buttons.forEach((key) => {
+              this.switchBtn(key)
+            })
+          });
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "CapsLock") {
+              button.classList.add("active");
+              this.caps = !this.caps
+            }
+          });
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "CapsLock") {
+              button.classList.remove("active");
+              this.caps = !this.caps
+            }
+          });
+
+          break;
+
+        case "ArrowUp":
+          button.classList.add("button_up");
+          button.id = key
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "ArrowUp") {
+              button.classList.add("up-active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "ArrowUp") {
+              button.classList.remove("up-active");
+            }
+          });
+
+          break;
+
+        case "ArrowLeft":
+          button.classList.add("button");
+          button.id = key
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "ArrowLeft") {
+              button.classList.add("active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "ArrowLeft") {
+              button.classList.remove("active");
+            }
+          });
+
+          break;
+
+        case "ArrowRight":
+          button.classList.add("button");
+          button.id = key
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "ArrowRight") {
+              button.classList.add("active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "ArrowRight") {
+              button.classList.remove("active");
+            }
+          });
+
+          break;
+
+        case "ArrowDown":
+          button.classList.add("button");
+          button.id = key
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "ArrowDown") {
+              button.classList.add("active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "ArrowDown") {
+              button.classList.remove("active");
+            }
+          });
+
+          break;
+
+        case "Space":
+          button.classList.add("button_space");
+          button.id = key
+          button.addEventListener("click", () => {
+            this.value += " "
+          });
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === "Space") {
+              button.classList.add("spase-active");
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === "Space") {
+              button.classList.remove("spase-active");
+            }
+          });
+
+          break;
+
+        case "fn":
+          button.id = key
+
+          button.addEventListener("click", () => {
+            this.value += "";
+            this.ln = this.ln === 'en' ? 'ru' : 'en'
+            let buttons = document.querySelectorAll('button')
+            buttons.forEach((key) => {
+              this.switchBtn(key)
+              document.querySelectorAll(".text").forEach(element => {
+                element.value = this.value;
+              });
+            })
+          });
+
+          break;
+
+        case "MetaLeft":
+          button.classList.add("button_command");
+          button.id = key
+
+          break;
+
+        case "MetaRight":
+          button.classList.add("button_command");
+          button.id = key
+
+          break;
+
+        default:
+          button.classList.add("button");
+          button.id = key
+          button.addEventListener("click", () => {
+            this.switchValue(key)
+            document.querySelectorAll(".text").forEach(element => {
+              element.value = this.value;
+            });
+          });
+
+          document.addEventListener('keydown', (event) => {
+            if (event.code === key) {
+              button.classList.add("active");
+              this.switchBtn(key)
+              document.querySelectorAll(".text").forEach(element => {
+                element.value = this.value;
+              });
+            }
+          });
+
+          document.addEventListener('keyup', (event) => {
+            if (event.code === key) {
+              button.classList.remove("active");
+              document.querySelectorAll(".text").forEach(element => {
+                element.value = this.value;
+              });
+            }
+          });
+
+          break;
+      }
+
+      button.addEventListener("click", () => {
+        document.querySelectorAll(".text").forEach(element => {
+          element.focus();
+        });
+      });
+
+      button.textContent = this.caps ? this.keys[key].u_en : this.keys[key].l_en;
+      fragment.appendChild(button);
 
     }
     return fragment;
   },
+  updateKeys(btn, e){
+    btn.addEventListener(e, () => {
+      this.caps = !this.caps
+      let buttons = document.querySelectorAll('button')
+      buttons.forEach((key) => {
+        this.switchBtn(key)
+        document.querySelectorAll(".text").forEach(element => {
+          element.value = this.value;
+        });
+      })
+    });
+  },
+  switchBtn(key) {
+    switch (this.ln) {
+      case "en":
+        key.textContent = this.caps
+            ? this.keys[key.id] && this.keys[key.id].u_en
+            : this.keys[key.id] && this.keys[key.id].l_en;
+        break
+      case "ru":
+        key.textContent = this.caps
+            ? this.keys[key.id] && this.keys[key.id].u_ru
+            : this.keys[key.id] && this.keys[key.id].l_ru;
+        break
+    }
+  },
+  switchValue(key) {
+    switch (this.ln) {
+      case "en":
+        this.value += this.caps
+            ? this.keys[key] && this.keys[key].u_en
+            : this.keys[key] && this.keys[key].l_en;
+        break
+      case "ru":
+        this.value += this.caps
+            ? this.keys[key] && this.keys[key].u_ru
+            : this.keys[key] && this.keys[key].l_ru;
+        break
+    }
+  }
 };
-
+const updateKeys = () => {
+  let button = document.querySelectorAll('button')
+  button.forEach((key) => {
+    switch (Body.ln) {
+      case "en":
+        key.textContent = Body.caps
+            ? Body.keys[key.id] && Body.keys[key.id].u_en
+            : Body.keys[key.id] && Body.keys[key.id].l_en;
+        break
+      case "ru":
+        key.textContent = Body.caps
+            ? Body.keys[key.id] && Body.keys[key.id].u_ru
+            : Body.keys[key.id] && Body.keys[key.id].l_ru;
+        break
+    }
+  })
+}
 window.addEventListener("DOMContentLoaded", () => Body.init());
 
 document.addEventListener('keydown', (event) => {
   if (event.code === "ShiftLeft") {
     Body.caps = true
-    let button = document.querySelectorAll('button')
-    button.forEach((key) => {
-      switch (Body.ln) {
-        case "en":
-          key.textContent = Body.caps
-              ? Body.keys[key.id] && Body.keys[key.id].u_en
-              : Body.keys[key.id] && Body.keys[key.id].l_en;
-          break
-        case "ru":
-          key.textContent = Body.caps
-              ? Body.keys[key.id] && Body.keys[key.id].u_ru
-              : Body.keys[key.id] && Body.keys[key.id].l_ru;
-          break
-      }
-
-    })
-  }
-});
-
-document.addEventListener('keyup', (event) => {
-  if (event.code === "ShiftRight") {
-    Body.caps = false
-    let button = document.querySelectorAll('button')
-    button.forEach((key) => {
-      switch (Body.ln) {
-        case "en":
-          key.textContent = Body.caps
-              ? Body.keys[key.id] && Body.keys[key.id].u_en
-              : Body.keys[key.id] && Body.keys[key.id].l_en;
-          break
-        case "ru":
-          key.textContent = Body.caps
-              ? Body.keys[key.id] && Body.keys[key.id].u_ru
-              : Body.keys[key.id] && Body.keys[key.id].l_ru;
-          break
-      }
-    })
-  }
-});
-document.addEventListener('keydown', (event) => {
-  if (event.code === "ShiftRight") {
-    Body.caps = true
-    let button = document.querySelectorAll('button')
-    button.forEach((key) => {
-      switch (Body.ln) {
-        case "en":
-          key.textContent = Body.caps
-              ? Body.keys[key.id] && Body.keys[key.id].u_ru
-              : Body.keys[key.id] && Body.keys[key.id].l_ru;
-          break
-        case "ru":
-          key.textContent = Body.caps
-              ? Body.keys[key.id] && Body.keys[key.id].u_ru
-              : Body.keys[key.id] && Body.keys[key.id].l_ru;
-          break
-      }
-    })
+    updateKeys()
   }
 });
 
 document.addEventListener('keyup', (event) => {
   if (event.code === "ShiftLeft") {
     Body.caps = false
-    let button = document.querySelectorAll('button')
-    button.forEach((key) => {
-      switch (Body.ln) {
-        case "en":
-          key.textContent = Body.caps
-              ? Body.keys[key.id] && Body.keys[key.id].u_en
-              : Body.keys[key.id] && Body.keys[key.id].l_en;
-          break
-        case "ru":
-          key.textContent = Body.caps
-              ? Body.keys[key.id] && Body.keys[key.id].u_ru
-              : Body.keys[key.id] && Body.keys[key.id].l_ru;
-          break
-      }
-    })
+    updateKeys()
   }
 });
-// document.addEventListener('keydown', (event) => {
-//   if (event.code === "CapsLock") {
-//     Body.caps = true
-//     let button = document.querySelectorAll('button')
-//     button.forEach((key) => {
-//       switch (Body.ln) {
-//         case "en":
-//           key.textContent = Body.caps
-//               ? Body.keys[key.id] && Body.keys[key.id].u_en
-//               : Body.keys[key.id] && Body.keys[key.id].l_en;
-//           break
-//         case "ru":
-//           key.textContent = Body.caps
-//               ? Body.keys[key.id] && Body.keys[key.id].u_ru
-//               : Body.keys[key.id] && Body.keys[key.id].l_ru;
-//           break
-//       }
-//     })
-//   }
-// });
 
-// document.addEventListener('keyup', (event) => {
-//   if (event.code === "CapsLock") {
-//     Body.caps = false
-//     let button = document.querySelectorAll('button')
-//     button.forEach((key) => {
-//       switch (Body.ln) {
-//         case "en":
-//           key.textContent = Body.caps
-//               ? Body.keys[key.id] && Body.keys[key.id].u_en
-//               : Body.keys[key.id] && Body.keys[key.id].l_en;
-//           break
-//         case "ru":
-//           key.textContent = Body.caps
-//               ? Body.keys[key.id] && Body.keys[key.id].u_ru
-//               : Body.keys[key.id] && Body.keys[key.id].l_ru;
-//           break
-//       }
-//     })
-//   }
-// });
+
+document.addEventListener('keydown', (event) => {
+  if (event.code === "ShiftRight") {
+    Body.caps = true
+    updateKeys()
+  }
+});
+document.addEventListener('keyup', (event) => {
+  if (event.code === "ShiftRight") {
+    Body.caps = false
+    updateKeys()
+  }
+});
+
 
 window.addEventListener("keydown", (event) => {
   document.querySelectorAll(".text").forEach(element => {
@@ -635,22 +534,7 @@ window.addEventListener("keydown", (event) => {
 
     case "CapsLock":
       Body.caps = true
-      let button = document.querySelectorAll('button')
-      button.forEach((key) => {
-        switch (Body.ln) {
-          case "en":
-            key.textContent = Body.caps
-                ? Body.keys[key.id] && Body.keys[key.id].u_en
-                : Body.keys[key.id] && Body.keys[key.id].l_en;
-            break
-          case "ru":
-            key.textContent = Body.caps
-                ? Body.keys[key.id] && Body.keys[key.id].u_ru
-                : Body.keys[key.id] && Body.keys[key.id].l_ru;
-            break
-        }
-      })
-
+      updateKeys()
       break;
 
     case "ShiftRight":
@@ -670,6 +554,22 @@ window.addEventListener("keydown", (event) => {
       break;
 
     case "AltRight":
+      Body.value += "";
+      break;
+
+    case "ArrowDown":
+      Body.value += "";
+      break;
+
+    case "ArrowLeft":
+      Body.value += "";
+      break;
+
+    case "ArrowRight":
+      Body.value += "";
+      break;
+
+    case "ArrowUp":
       Body.value += "";
       break;
 
@@ -684,19 +584,19 @@ window.addEventListener("keydown", (event) => {
     case "Space":
       Body.value += " ";
       break;
-    // default:
-    //   switch (Body.ln) {
-    //     case "en":
-    //       Body.value += Body.caps
-    //           ? Body.keys[event.code] && Body.keys[event.code].u_en
-    //           : Body.keys[event.code] && Body.keys[event.code].l_en;
-    //       break
-    //     case "ru":
-    //       Body.value += Body.caps
-    //           ? Body.keys[event.code] && Body.keys[event.code].u_ru
-    //           : Body.keys[event.code] && Body.keys[event.code].l_ru;
-    //       break
-    //   }
+    default:
+      switch (Body.ln) {
+        case "en":
+          Body.value += Body.caps
+              ? Body.keys[event.code] && Body.keys[event.code].u_en
+              : Body.keys[event.code] && Body.keys[event.code].l_en;
+          break
+        case "ru":
+          Body.value += Body.caps
+              ? Body.keys[event.code] && Body.keys[event.code].u_ru
+              : Body.keys[event.code] && Body.keys[event.code].l_ru;
+          break
+      }
   }
 });
 window.addEventListener("keyup", (event) => {
@@ -709,26 +609,12 @@ window.addEventListener("keyup", (event) => {
       break;
 
     case "Enter":
-      Body.value += "\n";
+      Body.value += "";
       break;
 
     case "CapsLock":
       Body.caps = false
-      let button = document.querySelectorAll('button')
-      button.forEach((key) => {
-        switch (Body.ln) {
-          case "en":
-            key.textContent = Body.caps
-                ? Body.keys[key.id] && Body.keys[key.id].u_en
-                : Body.keys[key.id] && Body.keys[key.id].l_en;
-            break
-          case "ru":
-            key.textContent = Body.caps
-                ? Body.keys[key.id] && Body.keys[key.id].u_ru
-                : Body.keys[key.id] && Body.keys[key.id].l_ru;
-            break
-        }
-      })
+      updateKeys()
       break;
 
     case "ShiftRight":
@@ -737,8 +623,6 @@ window.addEventListener("keyup", (event) => {
 
     case "ShiftLeft":
       Body.value += "";
-      Body.caps = !Body.caps
-
       break;
 
     case "ControlLeft":
@@ -753,6 +637,22 @@ window.addEventListener("keyup", (event) => {
       Body.value += "";
       break;
 
+    case "ArrowDown":
+      Body.value += "";
+      break;
+
+    case "ArrowUp":
+      Body.value += "";
+      break;
+
+    case "ArrowLeft":
+      Body.value += "";
+      break;
+
+    case "ArrowRight":
+      Body.value += "";
+      break;
+
     case "MetaLeft":
       Body.value += "";
       break;
@@ -764,6 +664,8 @@ window.addEventListener("keyup", (event) => {
     case "Space":
       Body.value += "";
       break;
+
+    default:
 
   }
 });
