@@ -1,0 +1,155 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .text {
+    width: 775px;
+    height: 100px;
+    margin: 0 auto 20px;
+    &:focus {
+      outline: none;
+    }
+  }
+  .description {
+    text-align: center;
+    padding-bottom: 0;
+  }
+  .keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    justify-content: center;
+    width: 780px;
+    margin: 0 auto;
+    height: 275px;
+    padding: 10px 0;
+    background: #96b9b7;
+    border-radius: 7px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    .button {
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 5px;
+      background: rgba(67, 140, 130, 0.76);
+      color: #fff;
+
+      &_backspace,
+      &_tab,
+      &_caps,
+      &_r-shift,
+      &_l-shift {
+        width: 75px;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        background: rgba(67, 140, 130, 0.76);
+        color: #fff;
+      }
+      &_up {
+        width: 50px;
+        height: 50px;
+        border: none;
+        margin-right: 52px;
+        border-radius: 5px;
+        background: rgba(67, 140, 130, 0.76);
+        color: #fff;
+      }
+      &_space {
+        width: 236px;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        background: rgba(67, 140, 130, 0.76);
+        color: #fff;
+      }
+      &_command {
+        width: 75px;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        background: rgba(67, 140, 130, 0.76);
+        color: #fff;
+      }
+      &:active {
+        width: 46px;
+        height: 46px;
+        margin: 2px;
+        opacity: 0.8;
+        transition: .1s;
+      }
+      &_backspace:active,
+      &_tab:active,
+      &_r-shift:active,
+      &_l-shift:active {
+        width: 71px;
+        height: 46px;
+        margin: 2px;
+        opacity: 0.8;
+        transition: .1s;
+      }
+      &_caps:active {
+        width: 46px;
+        height: 46px;
+        margin: 2px;
+        opacity: 0.8;
+        transition: .1s;
+       }
+
+
+      &_up:active {
+        width: 46px;
+        height: 46px;
+        margin: 2px 54px 2px 2px;
+        opacity: 0.8;
+        transition: .1s;
+      }
+      &_space:active {
+        width: 232px;
+        height: 46px;
+        margin: 2px;
+        opacity: 0.8;
+        transition: .1s;
+      }
+      &_command:active {
+        width: 71px;
+        height: 46px;
+        opacity: 0.8;
+        transition: .1s;
+      }
+    }
+    .active {
+      width: 46px;
+      height: 46px;
+      margin: 2px;
+      opacity: 0.8;
+      transition: .1s;
+    }
+    .backspace-active,
+    .tab-active,
+    .r-shift-active,
+    .l-shift-active {
+      width: 71px;
+      height: 46px;
+      margin: 2px;
+      opacity: 0.8;
+      transition: .1s;
+    }
+    .spase-active {
+      width: 232px;
+      height: 46px;
+      margin: 2px;
+      opacity: 0.8;
+      transition: .1s;
+    }
+    .up-active {
+      width: 46px;
+      height: 46px;
+      margin: 2px 54px 2px 2px;
+      opacity: 0.8;
+      transition: .1s;
+    }
+  }
+}
+
