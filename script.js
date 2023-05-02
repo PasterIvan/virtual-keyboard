@@ -6,7 +6,7 @@ const Body = {
     description1: "",
     description2: ""
   },
-  ln: 'en',
+  ln: localStorage.getItem("lng") ? localStorage.getItem("lng") : 'en',
   value: "",
   caps: false,
   keys: {
@@ -116,7 +116,6 @@ const Body = {
   createKeys() {
     const fragment = document.createDocumentFragment();
     const keys = this.keys;
-
     // Creates HTML for an icon
     for (let key in keys) {
       const button = document.createElement("button");
@@ -416,6 +415,7 @@ const Body = {
           button.addEventListener("click", () => {
             this.value += "";
             this.ln = this.ln === 'en' ? 'ru' : 'en'
+            localStorage.setItem("lng", this.ln)
             let buttons = document.querySelectorAll('button')
             buttons.forEach((key) => {
               this.switchBtn(key)
@@ -477,7 +477,9 @@ const Body = {
         });
       });
 
-      button.textContent = this.caps ? this.keys[key].u_en : this.keys[key].l_en;
+      button.textContent = this.ln === "en"
+          ? this.caps ? this.keys[key].u_en : this.keys[key].l_en
+          : this.caps ? this.keys[key].u_ru : this.keys[key].l_ru
       fragment.appendChild(button);
 
     }
