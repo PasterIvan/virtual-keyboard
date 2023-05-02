@@ -66,12 +66,12 @@ const Body = {
     "Slash": {l_en: "/", u_en: "?", l_ru: ".", u_ru: ","},
     "ArrowUp": {l_en: "Up", u_en: "Up", l_ru: "Up", u_ru: "Up"},
     "fn": {l_en: "fn", u_en: "fn", l_ru: "fn", u_ru: "fn"},
-    "AltRight": {l_en: "Option", u_en: "Option", l_ru: "Option", u_ru: "Option"},
     "ControlLeft": {l_en: "Ctr", u_en: "Ctr", l_ru: "Ctr", u_ru: "Ctr"},
     "AltLeft": {l_en: "Option", u_en: "Option", l_ru: "Option", u_ru: "Option"},
     "MetaLeft": {l_en: "Command", u_en: "Command", l_ru: "Command", u_ru: "Command"},
     "Space": {l_en: " ", u_en: " ", l_ru: " ", u_ru: " "},
     "MetaRight": {l_en: "Command", u_en: "Command", l_ru: "Command", u_ru: "Command"},
+    "AltRight": {l_en: "Option", u_en: "Option", l_ru: "Option", u_ru: "Option"},
     "ArrowLeft": {l_en: "Left", u_en: "Left", l_ru: "Left", u_ru: "Left"},
     "ArrowDown": {l_en: "Down", u_en: "Down", l_ru: "Down", u_ru: "Down"},
     "ArrowRight": {l_en: "Right", u_en: "Right", l_ru: "Right", u_ru: "Right"},
@@ -541,6 +541,10 @@ window.addEventListener("keydown", (event) => {
       Body.value += "";
       break;
 
+    case "Tab":
+      Body.value += "  ";
+      break;
+
     case "ShiftLeft":
       Body.value += "";
       break;
@@ -615,6 +619,10 @@ window.addEventListener("keyup", (event) => {
     case "CapsLock":
       Body.caps = false
       updateKeys()
+      break;
+
+    case "Tab":
+      Body.value += "";
       break;
 
     case "ShiftRight":
