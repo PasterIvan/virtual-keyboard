@@ -11,6 +11,10 @@
       outline: none;
     }
   }
+  .description {
+    text-align: center;
+    padding-bottom: 0;
+  }
   .keyboard {
     display: flex;
     flex-wrap: wrap;
@@ -77,7 +81,6 @@
       }
       &_backspace:active,
       &_tab:active,
-      &_caps:active,
       &_r-shift:active,
       &_l-shift:active {
         width: 71px;
@@ -86,6 +89,14 @@
         opacity: 0.8;
         transition: .1s;
       }
+      &_caps:active {
+        width: 46px;
+        height: 46px;
+        margin: 2px;
+        opacity: 0.8;
+        transition: .1s;
+       }
+
 
       &_up:active {
         width: 46px;
