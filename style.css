@@ -1,0 +1,146 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.main .text {
+  width: 775px;
+  height: 100px;
+  margin: 0 auto 20px;
+}
+.main .text:focus {
+  outline: none;
+}
+.main .description {
+  text-align: center;
+  padding-bottom: 0;
+}
+.main .keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  justify-content: center;
+  width: 780px;
+  margin: 0 auto;
+  height: 275px;
+  padding: 10px 0;
+  background: #96b9b7;
+  border-radius: 7px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+.main .keyboard .button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(67, 140, 130, 0.76);
+  color: #fff;
+}
+.main .keyboard .button_backspace, .main .keyboard .button_tab, .main .keyboard .button_caps, .main .keyboard .button_r-shift, .main .keyboard .button_l-shift {
+  width: 75px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(67, 140, 130, 0.76);
+  color: #fff;
+}
+.main .keyboard .button_up {
+  width: 50px;
+  height: 50px;
+  border: none;
+  margin-right: 52px;
+  border-radius: 5px;
+  background: rgba(67, 140, 130, 0.76);
+  color: #fff;
+}
+.main .keyboard .button_space {
+  width: 236px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(67, 140, 130, 0.76);
+  color: #fff;
+}
+.main .keyboard .button_command {
+  width: 75px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  background: rgba(67, 140, 130, 0.76);
+  color: #fff;
+}
+.main .keyboard .button:active {
+  width: 46px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .button_backspace:active, .main .keyboard .button_tab:active, .main .keyboard .button_r-shift:active, .main .keyboard .button_l-shift:active {
+  width: 71px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .button_caps:active {
+  width: 46px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .button_up:active {
+  width: 46px;
+  height: 46px;
+  margin: 2px 54px 2px 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .button_space:active {
+  width: 232px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .button_command:active {
+  width: 71px;
+  height: 46px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .active {
+  width: 46px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .backspace-active,
+.main .keyboard .tab-active,
+.main .keyboard .r-shift-active,
+.main .keyboard .l-shift-active {
+  width: 71px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .spase-active {
+  width: 232px;
+  height: 46px;
+  margin: 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+.main .keyboard .up-active {
+  width: 46px;
+  height: 46px;
+  margin: 2px 54px 2px 2px;
+  opacity: 0.8;
+  transition: 0.1s;
+}
+
+/*# sourceMappingURL=style.css.map */
