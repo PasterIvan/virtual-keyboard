@@ -368,6 +368,7 @@ const Body = {
               this.caps = !this.caps;
               button.classList.toggle('active');
               const buttons = document.querySelectorAll('button');
+              // eslint-disable-next-line no-shadow
               buttons.forEach((key) => {
                 this.switchBtn(key);
               });
@@ -563,6 +564,7 @@ const Body = {
               this.ln = this.ln === 'en' ? 'ru' : 'en';
               localStorage.setItem('lng', this.ln);
               const buttons = document.querySelectorAll('button');
+              // eslint-disable-next-line no-shadow
               buttons.forEach((key) => {
                 this.switchBtn(key);
                 document.querySelector('.text').value = this.value;
@@ -638,11 +640,13 @@ const Body = {
   switchBtn(key) {
     switch (this.ln) {
       case 'en':
+        // eslint-disable-next-line no-param-reassign
         key.textContent = this.caps
           ? this.keys[key.id] && this.keys[key.id].u_en
           : this.keys[key.id] && this.keys[key.id].l_en;
         break;
       case 'ru':
+        // eslint-disable-next-line no-param-reassign
         key.textContent = this.caps
           ? this.keys[key.id] && this.keys[key.id].u_ru
           : this.keys[key.id] && this.keys[key.id].l_ru;
@@ -671,11 +675,13 @@ const updateKeys = () => {
   button.forEach((key) => {
     switch (Body.ln) {
       case 'en':
+        // eslint-disable-next-line no-param-reassign
         key.textContent = Body.caps
           ? Body.keys[key.id] && Body.keys[key.id].u_en
           : Body.keys[key.id] && Body.keys[key.id].l_en;
         break;
       case 'ru':
+        // eslint-disable-next-line no-param-reassign
         key.textContent = Body.caps
           ? Body.keys[key.id] && Body.keys[key.id].u_ru
           : Body.keys[key.id] && Body.keys[key.id].l_ru;
